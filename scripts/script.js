@@ -11,6 +11,7 @@ const twelveFour = document.querySelector('#twelve-four');
 const twelveFive = document.querySelector('#twelve-five');
 const twelveSix = document.querySelector('#twelve-six');
 const twelveSeven = document.querySelector('#twelve-seven');
+const twelveEight = document.querySelector('#twelve-eight');
 
 
 one.addEventListener('click', (e) => {
@@ -129,5 +130,15 @@ twelveSeven.addEventListener('click', (e) => {
         alert('Отмена!');
     } else {
         alert('Отлично!');
+    }
+});
+
+twelveEight.addEventListener('click', (e) => {
+    let n = 10;
+
+    for(i = 2; i <= n; i++) {
+        for(j = 0; j < i; j++) {
+            
+        }
     }
 });
