@@ -135,10 +135,14 @@ twelveSeven.addEventListener('click', (e) => {
 
 twelveEight.addEventListener('click', (e) => {
     let n = 10;
-
-    for(i = 2; i <= n; i++) {
-        for(j = 0; j < i; j++) {
-            
+    
+    top:
+    for(let i = 2; i <= n; i++) {
+        for(let j = 2; j < i; j++) {
+            if(i % j == 0) continue top;
         }
+        console.log(i);
     }
+
+    alert('Смотри консоль');
 });
