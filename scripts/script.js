@@ -10,6 +10,7 @@ const elevanEight = document.querySelector('#elevan-eight');
 const twelveFour = document.querySelector('#twelve-four');
 const twelveFive = document.querySelector('#twelve-five');
 const twelveSix = document.querySelector('#twelve-six');
+const twelveSeven = document.querySelector('#twelve-seven');
 
 
 one.addEventListener('click', (e) => {
@@ -114,5 +115,19 @@ twelveSix.addEventListener('click', (e) => {
     while(i < 3) {
         alert( `number ${i}!` );
         i++;
+    }
+});
+
+twelveSeven.addEventListener('click', (e) => {
+    let i = prompt('Введите число больше 100');
+
+    while(i < 100 && i != null) {
+        i = prompt('Введите число больше 100');
+    }
+
+    if(i == null) {
+        alert('Отмена!');
+    } else {
+        alert('Отлично!');
     }
 });
