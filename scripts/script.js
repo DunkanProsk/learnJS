@@ -12,7 +12,10 @@ const twelveFive = document.querySelector('#twelve-five');
 const twelveSix = document.querySelector('#twelve-six');
 const twelveSeven = document.querySelector('#twelve-seven');
 const twelveEight = document.querySelector('#twelve-eight');
-
+const thirteenTwo = document.querySelector('#thirteen-two');
+const fourteenTwo = document.querySelector('#fourteen-two');
+const fourteenThree = document.querySelector('#fourteen-three');
+const fourteenFour = document.querySelector('#fourteen-four');
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -146,3 +149,67 @@ twelveEight.addEventListener('click', (e) => {
 
     alert('Смотри консоль');
 });
+
+
+thirteenTwo.addEventListener('click', (e) => {
+    const number = +prompt('Введите число между 0 и 3', '');
+
+    switch(number) {
+        case 0:
+            alert('Вы ввели число 0');
+            break;
+        case 1:
+            alert('Вы ввели число 1');
+            break;
+        case 2:
+        case 3:
+            alert('Вы ввели число 2, а может и 3');
+            break;
+    }
+});
+
+fourteenTwo.addEventListener('click', (e) => {
+    let age = prompt('Сколько лет?');
+
+    let fun = (age) => {
+        return (age > 18) ? alert('Отлично!') : confirm('Родители разрешили?');
+        // return (age > 18) || confirm('Родители разрешили?'); //------------Второй вариант
+    };
+
+    fun(age);
+});
+
+fourteenThree.addEventListener('click', (e) => {
+    let a = prompt('Введите первое число');
+    let b = prompt('Введите второе число');
+
+    let sum = (a, b) => {
+        a > b ? alert(a) : alert(b);
+    };
+
+    sum(a, b);
+});
+
+fourteenFour.addEventListener('click', (e) => {
+    let a = prompt('Введите число');
+    let b = prompt('Введите степень');
+
+    let pow = (a, b) => {
+        let i = 1;
+        let j = a;
+
+        while(i < b) {
+            j = j * a;
+            i++;
+        }
+        
+        alert(j);
+    };
+
+    if(a > 0) {
+        b > 0 ? pow(a, b) : alert('Неправильный ввод!');
+    } else {
+        alert('Неправильный ввод!');
+    }
+});
+
