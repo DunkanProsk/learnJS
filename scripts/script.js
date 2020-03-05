@@ -22,6 +22,8 @@ const objOneOne = document.querySelector('#obj__one-one');
 const objOneTwo = document.querySelector('#obj__one-two');
 const objOneFour = document.querySelector('#obj__one-four');
 const objOneFive = document.querySelector('#obj__one-five');
+const objFourFour = document.querySelector('#obj__four-four');
+const objFourFive = document.querySelector('#obj__four-five');
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -298,4 +300,45 @@ objOneFive.addEventListener('click', (e) => {
     };
 
     sumNum(menu);    
+});
+
+objFourFour.addEventListener('click', (e) => {
+    let calculator = {
+        a : 0,
+        b : 0,
+        read() {
+            this.a = +prompt('Введите первое число');
+            this.b = +prompt('Введите второе число');
+        },
+        sum() {
+            console.log('сумма: ', this.a + this.b);
+        },
+        mul() {
+            console.log('произведение: ', this.a * this.b);
+        },
+    };
+
+    calculator.read();
+    calculator.sum();
+    calculator.mul();    
+});
+
+objFourFive.addEventListener('click', (e) => {
+    let ladder = {
+        step: 0,
+        up: function() {
+          this.step++;
+          return this;
+        },
+        down: function() {
+          this.step--;
+          return this;
+        },
+        showStep: function() { // показывает текущую ступеньку
+          alert( this.step );
+          return this;
+        }
+      }; 
+
+    ladder.up().up().down().showStep();
 });
