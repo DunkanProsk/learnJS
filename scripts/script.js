@@ -31,7 +31,10 @@ const typeTwoOne = document.querySelector('#type__two-one');
 const typeTwoThree = document.querySelector('#type__two-three');
 const typeThreeOne = document.querySelector('#type__three-one');
 const typeThreeTwo = document.querySelector('#type__three-two');
+const typeThreeThree = document.querySelector('#type__three-three');
+const typeThreeFour = document.querySelector('#type__three-four');
 
+//----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -237,6 +240,8 @@ sixteen.addEventListener('click', (e) => {
     ask();
 });
 
+//----------------------------------------------------------------Объекты: основы----------------------------------------//
+
 objOneOne.addEventListener('click', (e) => {
     let user = {};
     user.name = "John";
@@ -396,6 +401,8 @@ objSixThree.addEventListener('click', (e) => {
 
 });
 
+//----------------------------------------------------------------Типы данных----------------------------------------//
+
 typeTwoOne.addEventListener('click', (e) => {
     let sum = () => {
         let a = +prompt('Введите первое число!');
@@ -441,4 +448,30 @@ typeThreeTwo.addEventListener('click', (e) => {
     let str = prompt('Введите строку');
 
     checkSpam(str.toLowerCase());
+});
+
+typeThreeThree.addEventListener('click', (e) => {
+    let str = prompt('Введите строку');
+    let maxlength = prompt('Введите максимальную длину строки');
+    
+    function truncate(str, maxlength) {
+        if(str.length > maxlength) {
+            alert(str.slice(0, (--maxlength)) + "…");
+        }
+    }
+
+    truncate(str, maxlength);
+});
+
+typeThreeFour.addEventListener('click', (e) => {
+    let str = prompt('Введите строку c числом');
+    
+    function extractCurrencyValue(str) {
+        let strNew = '';
+        for(let i = 0; i < str.length; i++) {
+            if(Number(str[i])) strNew += str[i];
+        }
+        alert(strNew);
+    };
+    extractCurrencyValue(str);
 });
