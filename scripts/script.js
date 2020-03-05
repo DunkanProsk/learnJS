@@ -29,6 +29,9 @@ const objSixThree = document.querySelector('#obj__six-three');
 
 const typeTwoOne = document.querySelector('#type__two-one');
 const typeTwoThree = document.querySelector('#type__two-three');
+const typeThreeOne = document.querySelector('#type__three-one');
+const typeThreeTwo = document.querySelector('#type__three-two');
+
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -418,4 +421,24 @@ typeTwoThree.addEventListener('click', (e) => {
         num();
     };
     num();
+});
+
+typeThreeOne.addEventListener('click', (e) => {
+    let str = prompt('Введите слово с маленькой буквы!');
+    
+    let strUp = (str) => {
+        alert(str[0].toUpperCase() + str.substring(1, str.length));
+    }
+
+    strUp(str);
+});
+
+typeThreeTwo.addEventListener('click', (e) => {
+    let checkSpam = (str) => {
+        (str.indexOf('xxx') != -1 || str.indexOf('viagra') != -1) ? alert('Есть СПАМ!') : alert('Все чисто!');
+    };
+
+    let str = prompt('Введите строку');
+
+    checkSpam(str.toLowerCase());
 });
