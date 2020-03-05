@@ -33,6 +33,8 @@ const typeThreeOne = document.querySelector('#type__three-one');
 const typeThreeTwo = document.querySelector('#type__three-two');
 const typeThreeThree = document.querySelector('#type__three-three');
 const typeThreeFour = document.querySelector('#type__three-four');
+const typeFourTwo = document.querySelector('#type__four-two');
+const typeFourFour = document.querySelector('#type__four-four');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -474,4 +476,40 @@ typeThreeFour.addEventListener('click', (e) => {
         alert(strNew);
     };
     extractCurrencyValue(str);
+});
+
+typeFourTwo.addEventListener('click', (e) => {
+    let arr = ['Джаз', 'Блюз'];
+
+    arr.push('Рок-н-ролл');
+
+    arr[Math.ceil((arr.length / 2)-1)] = 'Классика';
+
+    alert(arr.shift());
+
+    arr.unshift("Рэп", "Регги");
+
+    alert(arr);
+});
+
+typeFourFour.addEventListener('click', (e) => {
+    let arr = [];
+    let numNew = 0;
+
+    function push() {
+        let num = prompt('Введите число');
+
+        if(num != null && num != '' && Number(num)){
+            arr.push(num);
+            push();
+        } else {
+            arr.forEach(function(item) {
+                numNew += Number(item);
+            });
+
+            alert(numNew);
+        };
+    };
+    
+    push();
 });
