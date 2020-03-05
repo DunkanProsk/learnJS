@@ -24,6 +24,8 @@ const objOneFour = document.querySelector('#obj__one-four');
 const objOneFive = document.querySelector('#obj__one-five');
 const objFourFour = document.querySelector('#obj__four-four');
 const objFourFive = document.querySelector('#obj__four-five');
+const objSixTwo = document.querySelector('#obj__six-two');
+const objSixThree = document.querySelector('#obj__six-three');
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -341,4 +343,49 @@ objFourFive.addEventListener('click', (e) => {
       }; 
 
     ladder.up().up().down().showStep();
+});
+
+objSixTwo.addEventListener('click', (e) => {
+    function Calculator() {
+        this.a,
+        this.b,
+
+        this.read = function() {
+            this.a = +prompt('Введите первое число');
+            this.b = +prompt('Введите второе число');
+        };
+
+        this.sum = function() {
+            console.log('сумма: ', this.a + this.b);
+        };
+
+        this.mul = function() {
+            console.log('произведение: ', this.a * this.b);
+        };
+    };
+
+    let calc = new Calculator();
+    
+    calc.read();
+    calc.sum();
+    calc.mul();
+    console.log(calc);
+});
+
+objSixThree.addEventListener('click', (e) => {
+    function Accumulator(startingValue) {
+        this.value = startingValue,
+
+        this.read = function() {
+            this.value = this.value + (+prompt('Сколько прибавить?'));
+        }
+    };
+
+    let acc = new Accumulator(1)
+
+    acc.read();
+    acc.read();
+    acc.read();
+    console.log(acc.value);
+
 });
