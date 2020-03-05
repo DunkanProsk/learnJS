@@ -27,6 +27,9 @@ const objFourFive = document.querySelector('#obj__four-five');
 const objSixTwo = document.querySelector('#obj__six-two');
 const objSixThree = document.querySelector('#obj__six-three');
 
+const typeTwoOne = document.querySelector('#type__two-one');
+const typeTwoThree = document.querySelector('#type__two-three');
+
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
 });
@@ -388,4 +391,31 @@ objSixThree.addEventListener('click', (e) => {
     acc.read();
     console.log(acc.value);
 
+});
+
+typeTwoOne.addEventListener('click', (e) => {
+    let sum = () => {
+        let a = +prompt('Введите первое число!');
+        let b = +prompt('Введите второе число!');
+
+        alert(a + b);
+    };
+
+    sum();
+});
+
+typeTwoThree.addEventListener('click', (e) => {
+    let num = () => {
+        let i = prompt('Введите число');
+        
+        if(!isNaN(i)) {
+            if ((i !== null) && (i !== '')) {
+                return alert(i);
+            } else {
+                return alert('Неправильный ввод');
+            };
+        };
+        num();
+    };
+    num();
 });
