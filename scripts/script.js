@@ -16,6 +16,12 @@ const thirteenTwo = document.querySelector('#thirteen-two');
 const fourteenTwo = document.querySelector('#fourteen-two');
 const fourteenThree = document.querySelector('#fourteen-three');
 const fourteenFour = document.querySelector('#fourteen-four');
+const sixteen = document.querySelector('#sixteen');
+
+const objOneOne = document.querySelector('#obj__one-one');
+const objOneTwo = document.querySelector('#obj__one-two');
+const objOneFour = document.querySelector('#obj__one-four');
+const objOneFive = document.querySelector('#obj__one-five');
 
 one.addEventListener('click', (e) => {
     alert('I am JavaScript!');
@@ -213,3 +219,83 @@ fourteenFour.addEventListener('click', (e) => {
     }
 });
 
+sixteen.addEventListener('click', (e) => {
+    let ask = () => {
+        confirm("Вы согласны?") ? alert("Вы согласились") : alert("Вы отменили соглашение");
+    }
+        
+    ask();
+});
+
+objOneOne.addEventListener('click', (e) => {
+    let user = {};
+    user.name = "John";
+    user.surname = "Smith";
+    user.name = "Pete";
+    delete user.name;
+
+    console.log(`let user = {};`);
+    console.log(`user.name = "John";`);
+    console.log(`user.surname = "Smith";`);
+    console.log(`user.name = "Pete";`);
+    console.log(`delete user.name;`);
+
+    alert('Смотри консоль');
+});
+
+
+objOneTwo.addEventListener('click', (e) => {
+    let user = {
+        // name:'asd',
+    };
+    
+    let isEmpty = (obj) => {
+        for (let key in obj) {
+            return console.log('Объект не пуст!');
+        };
+
+        return console.log('Объект пуст!');
+    };
+
+    isEmpty(user);    
+});
+
+objOneFour.addEventListener('click', (e) => {
+    let salaries = {
+        John: 100,
+        Ann: 160,
+        Pete: 130,
+    }
+    
+    let sum = (obj) => {
+        let sum = 0;
+        
+        for (let key in obj) {
+            sum = sum + obj[key];
+        };
+        
+        console.log(sum);
+    };
+
+    sum(salaries);    
+});
+
+objOneFive.addEventListener('click', (e) => {
+    let menu = {
+        width: 200,
+        height: 300,
+        title: "My menu",
+    };
+    
+    let sumNum = (obj) => {
+        let sum = 0;
+        
+        for (let key in obj) {
+            if ((typeof(obj[key])) == "number") obj[key] = obj[key] * 2;
+        };
+        
+        console.log(menu);
+    };
+
+    sumNum(menu);    
+});
