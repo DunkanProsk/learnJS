@@ -38,6 +38,9 @@ const typeFourFour = document.querySelector('#type__four-four');
 const typeFiveOne = document.querySelector('#type__five-one');
 const typeFiveTwo = document.querySelector('#type__five-two');
 const typeFiveThree = document.querySelector('#type__five-three');
+const typeFiveFour = document.querySelector('#type__five-four');
+const typeFiveFive = document.querySelector('#type__five-five');
+const typeFiveSix = document.querySelector('#type__five-six');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -342,7 +345,7 @@ objFourFour.addEventListener('click', (e) => {
 });
 
 objFourFive.addEventListener('click', (e) => {
-    let ladder = {
+    let chekStep = {
         step: 0,
         up: function() {
           this.step++;
@@ -352,13 +355,13 @@ objFourFive.addEventListener('click', (e) => {
           this.step--;
           return this;
         },
-        showStep: function() { // показывает текущую ступеньку
+        showStep: function() {
           alert( this.step );
           return this;
         }
       }; 
 
-    ladder.up().up().down().showStep();
+    chekStep.up().up().down().showStep();
 });
 
 objSixTwo.addEventListener('click', (e) => {
@@ -573,4 +576,61 @@ typeFiveThree.addEventListener('click', (e) => {
     };
 
     filterRangeInPlace(arr, a, b);
+});
+
+typeFiveFour.addEventListener('click', (e) => {
+    let arr = [5, 2, 1, -10, 8];
+
+    console.log(arr);
+
+    function sortArr(arr) {
+        arr = arr.sort(function(a, b){ 
+            return a - b;
+        });
+        console.log(arr);
+    };
+
+    sortArr(arr);
+});
+
+typeFiveFive.addEventListener('click', (e) => {
+    let arr = ["HTML", "JavaScript", "CSS"];
+
+    function copySorted(arr) {
+        let newArr = arr.slice(0);
+
+        console.log(arr);
+        console.log(newArr.sort());
+    };
+
+    copySorted(arr);
+});
+
+typeFiveSix.addEventListener('click', (e) => {
+    let str = prompt('Введите вычисления через пробел');
+    
+    function Calculator() {
+        this.calculate = (str) => {
+            let arr = str.split(' ');
+
+            switch(arr[1]) {
+                case '+':
+                    alert(+arr[0] + +arr[2]);
+                    break;
+                case '-':
+                    alert(+arr[0] - +arr[2]);
+                    break;
+                default:
+                    break;
+            };   
+        };
+
+        this.addMethod = () => {
+
+        }
+    };
+
+    let calc = new Calculator();
+
+    calc.calculate(str);  
 });
