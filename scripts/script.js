@@ -41,6 +41,7 @@ const typeFiveThree = document.querySelector('#type__five-three');
 const typeFiveFour = document.querySelector('#type__five-four');
 const typeFiveFive = document.querySelector('#type__five-five');
 const typeFiveSix = document.querySelector('#type__five-six');
+const typeFiveSeven = document.querySelector('#type__five-seven');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -636,4 +637,23 @@ typeFiveSix.addEventListener('click', (e) => {
     let calc = new Calculator();
 
     calc.calculate(str);
+});
+
+typeFiveSeven.addEventListener('click', (e) => {
+    let vasya = { name: "Вася", age: 25 };
+    let petya = { name: "Петя", age: 30 };
+    let masha = { name: "Маша", age: 28 };
+
+    let users = [ vasya, petya, masha ];
+    let namesArr = [];
+
+    let names = () => {
+        for (let i = 0; i < users.length; i++) {
+            namesArr.push(users[i].name);
+        }
+
+        alert(namesArr);
+    };
+
+    names();
 });
