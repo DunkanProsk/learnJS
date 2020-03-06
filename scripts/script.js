@@ -536,23 +536,19 @@ typeFiveOne.addEventListener('click', (e) => {
 });
 
 typeFiveTwo.addEventListener('click', (e) => {
-    let arr = [5, 3, 8, 1, 11, 15, 100, 32, 28];
+    let arr = [5, 3, 8, 1, 11, 15, 30, 100, 32, 28];
     let a = 0, b = 30;
 
     function filterRange(arr, a, b) {
         let newArr = [];
 
         for (let i = 0; i <= arr.length; i++) {
-            if(arr[i] >= a && arr[i] <= b) {
-                if(i !== arr.length) {
-                    newArr.push(arr.slice(i,i + 1));
-                } else {
-                    newArr.push(arr.slice(i));
-                };
-            };
+            if(arr[i] >= a && arr[i] <= b) newArr.push(arr[i]);
         };
 
-        alert(newArr + '  новый массив | ' + arr + '  старый массив. ');
+        console.log('Диапазон чисел от 0 до 30');
+        console.log(newArr);
+        console.log(arr);
     };
 
     filterRange(arr, a, b);
