@@ -37,6 +37,7 @@ const typeFourTwo = document.querySelector('#type__four-two');
 const typeFourFour = document.querySelector('#type__four-four');
 const typeFiveOne = document.querySelector('#type__five-one');
 const typeFiveTwo = document.querySelector('#type__five-two');
+const typeFiveThree = document.querySelector('#type__five-three');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -547,9 +548,29 @@ typeFiveTwo.addEventListener('click', (e) => {
         };
 
         console.log('Диапазон чисел от 0 до 30');
-        console.log(newArr);
         console.log(arr);
+        console.log(newArr);
     };
 
     filterRange(arr, a, b);
+});
+
+typeFiveThree.addEventListener('click', (e) => {
+    let arr = [5, 3, 8, 1, 11, 15, 30, 100, 32, 28];
+    let a = 0, b = 30;
+
+    console.log('Диапазон чисел от 0 до 30');
+    console.log(arr);
+
+    function filterRangeInPlace(arr, a, b) {
+        for (let i = 0; i < arr.length; i++) {
+            if(arr[i] < a || arr[i] > b) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+        console.log(arr);
+    };
+
+    filterRangeInPlace(arr, a, b);
 });
