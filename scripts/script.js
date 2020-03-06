@@ -35,6 +35,7 @@ const typeThreeThree = document.querySelector('#type__three-three');
 const typeThreeFour = document.querySelector('#type__three-four');
 const typeFourTwo = document.querySelector('#type__four-two');
 const typeFourFour = document.querySelector('#type__four-four');
+const typeFiveOne = document.querySelector('#type__five-one');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -512,4 +513,24 @@ typeFourFour.addEventListener('click', (e) => {
     };
     
     push();
+});
+
+typeFiveOne.addEventListener('click', (e) => {
+    let str = prompt('Введите строку с дефисами');
+    let newStr = '';
+    
+    function camelize(str) {
+        let arr = str.split('-');
+        newStr += arr[0];
+        
+        for (let i = 1; i < arr.length; i++) {
+            let strNew = arr[i].toLowerCase();
+            newStr += strNew[0].toUpperCase() + strNew.substring(1, strNew.length);
+        }
+        
+        alert(newStr);
+        
+    }
+
+    camelize(str);
 });
