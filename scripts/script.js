@@ -36,6 +36,7 @@ const typeThreeFour = document.querySelector('#type__three-four');
 const typeFourTwo = document.querySelector('#type__four-two');
 const typeFourFour = document.querySelector('#type__four-four');
 const typeFiveOne = document.querySelector('#type__five-one');
+const typeFiveTwo = document.querySelector('#type__five-two');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -527,10 +528,32 @@ typeFiveOne.addEventListener('click', (e) => {
             let strNew = arr[i].toLowerCase();
             newStr += strNew[0].toUpperCase() + strNew.substring(1, strNew.length);
         }
-        
+
         alert(newStr);
-        
     }
 
     camelize(str);
+});
+
+typeFiveTwo.addEventListener('click', (e) => {
+    let arr = [5, 3, 8, 1, 11, 15, 100, 32, 28];
+    let a = 0, b = 30;
+
+    function filterRange(arr, a, b) {
+        let newArr = [];
+
+        for (let i = 0; i <= arr.length; i++) {
+            if(arr[i] >= a && arr[i] <= b) {
+                if(i !== arr.length) {
+                    newArr.push(arr.slice(i,i + 1));
+                } else {
+                    newArr.push(arr.slice(i));
+                };
+            };
+        };
+
+        alert(newArr + '  новый массив | ' + arr + '  старый массив. ');
+    };
+
+    filterRange(arr, a, b);
 });
