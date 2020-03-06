@@ -42,6 +42,8 @@ const typeFiveFour = document.querySelector('#type__five-four');
 const typeFiveFive = document.querySelector('#type__five-five');
 const typeFiveSix = document.querySelector('#type__five-six');
 const typeFiveSeven = document.querySelector('#type__five-seven');
+const typeFiveEight = document.querySelector('#type__five-eight');
+const typeFiveNine = document.querySelector('#type__five-nine');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -656,4 +658,41 @@ typeFiveSeven.addEventListener('click', (e) => {
     };
 
     names();
+});
+
+typeFiveEight.addEventListener('click', (e) => {
+    let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+    let petya = { name: "Петя", surname: "Иванов", id: 2 };
+    let masha = { name: "Маша", surname: "Петрова", id: 3 };
+    
+    let users = [ vasya, petya, masha ];
+
+    let names = () => {
+        for (let i = 0; i < users.length; i++) {
+            users[i].fullName = users[i].name + ' ' + users[i].surname;
+            delete users[i].name;
+            delete users[i].surname;
+        };
+
+        console.log(users);
+    };
+
+    names();
+});
+
+typeFiveNine.addEventListener('click', (e) => {
+    let vasya = { name: "Вася", age: 25 };
+    let petya = { name: "Петя", age: 30 };
+    let masha = { name: "Маша", age: 28 };
+
+    let arr = [ vasya, petya, masha ];
+
+    function sortByAge(arr) {
+        arr = arr.sort(function(a, b){
+            return a.age-b.age
+          })
+        console.log(arr);
+    };
+
+    sortByAge(arr);
 });
