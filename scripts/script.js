@@ -610,27 +610,30 @@ typeFiveSix.addEventListener('click', (e) => {
     let str = prompt('Введите вычисления через пробел');
     
     function Calculator() {
+        this.opMethods = {
+            "+": (a, b) => a + b,
+            "-": (a, b) => a - b,
+            "*": (a, b) => a * b,
+            "/": (a, b) => a / b,
+            "**": (a, b) => a ** b,
+        };
+
         this.calculate = (str) => {
             let arr = str.split(' ');
 
-            switch(arr[1]) {
-                case '+':
-                    alert(+arr[0] + +arr[2]);
-                    break;
-                case '-':
-                    alert(+arr[0] - +arr[2]);
-                    break;
-                default:
-                    break;
-            };   
+            let a = +arr[0];
+            let b = +arr[2];
+            let op = arr[1];
+            
+            alert(this.opMethods[op](a, b));
         };
 
-        this.addMethod = () => {
-
+        this.addMethod = (name, func) => {
+            this.opMethods[name] = func;
         }
     };
 
     let calc = new Calculator();
 
-    calc.calculate(str);  
+    calc.calculate(str);
 });
