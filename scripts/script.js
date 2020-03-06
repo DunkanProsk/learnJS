@@ -44,6 +44,9 @@ const typeFiveSix = document.querySelector('#type__five-six');
 const typeFiveSeven = document.querySelector('#type__five-seven');
 const typeFiveEight = document.querySelector('#type__five-eight');
 const typeFiveNine = document.querySelector('#type__five-nine');
+const typeFiveTen = document.querySelector('#type__five-ten');
+const typeFiveElevan = document.querySelector('#type__five-elevan');
+const typeFiveTwelve = document.querySelector('#type__five-twelve');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -695,4 +698,73 @@ typeFiveNine.addEventListener('click', (e) => {
     };
 
     sortByAge(arr);
+});
+
+typeFiveNine.addEventListener('click', (e) => {
+    let vasya = { name: "Вася", age: 25 };
+    let petya = { name: "Петя", age: 30 };
+    let masha = { name: "Маша", age: 28 };
+
+    let arr = [ vasya, petya, masha ];
+
+    function sortByAge(arr) {
+        arr = arr.sort(function(a, b){
+            return a.age-b.age
+          })
+        console.log(arr);
+    };
+
+    sortByAge(arr);
+});
+
+typeFiveTen.addEventListener('click', (e) => {
+    let arr = [1, 2, 3];
+
+    let shuffle = (arr) => { 
+        arr = arr.sort((a, b) => Math.random() - 0.5);
+        console.log(arr);
+    };
+
+    shuffle(arr);
+});
+
+typeFiveElevan.addEventListener('click', (e) => {
+    let vasya = { name: "Вася", age: 25 };
+    let petya = { name: "Петя", age: 30 };
+    let masha = { name: "Маша", age: 29 };
+
+    let arr = [ vasya, petya, masha ];
+    let allAge = 0;
+
+    let ages = () => {
+        for (let i = 0; i < arr.length; i++) {
+            allAge = allAge + arr[i].age;
+
+            console.log(allAge);
+
+            if (i == arr.length - 1) {
+                alert(allAge/(i + 1));
+            }
+        };
+    };
+
+    ages();
+});
+
+typeFiveTwelve.addEventListener('click', (e) => {
+    function contains(arr, elem) {
+        return arr.find((i) => i === elem) != -1;
+    };
+
+    let arr = ["кришна", "кришна", "харе", "харе",
+    "харе", "харе", "кришна", "кришна", ":-O"];
+    
+    
+    
+    
+    function check(arr, val) {
+        return arr.some(function(arrVal) {
+          return val === arrVal;
+        });
+    };
 });
