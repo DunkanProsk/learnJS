@@ -752,19 +752,20 @@ typeFiveElevan.addEventListener('click', (e) => {
 });
 
 typeFiveTwelve.addEventListener('click', (e) => {
-    function contains(arr, elem) {
-        return arr.find((i) => i === elem) != -1;
+    function uniq(arr) {
+        let arrSort = [];
+
+        for (let str of arr) {
+            if(!arrSort.includes(str)){
+                arrSort.push(str);
+            }
+        }
+
+        console.log(arrSort);
     };
 
     let arr = ["кришна", "кришна", "харе", "харе",
     "харе", "харе", "кришна", "кришна", ":-O"];
     
-    
-    
-    
-    function check(arr, val) {
-        return arr.some(function(arrVal) {
-          return val === arrVal;
-        });
-    };
+    uniq(arr);
 });
