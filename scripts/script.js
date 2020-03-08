@@ -47,6 +47,8 @@ const typeFiveNine = document.querySelector('#type__five-nine');
 const typeFiveTen = document.querySelector('#type__five-ten');
 const typeFiveElevan = document.querySelector('#type__five-elevan');
 const typeFiveTwelve = document.querySelector('#type__five-twelve');
+const typeSevenOne = document.querySelector('#type__seven-one');
+const typeSevenTwo = document.querySelector('#type__seven-two');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -768,4 +770,43 @@ typeFiveTwelve.addEventListener('click', (e) => {
     "харе", "харе", "кришна", "кришна", ":-O"];
     
     uniq(arr);
+});
+
+typeSevenOne.addEventListener('click', (e) => {
+    let values = [
+        "Hare", "Krishna", "Hare", "Krishna", "Krishna",
+        "Krishna", "Hare", "Hare", ":-O", ":-O", ":-O",
+    ];
+
+    function unique(arr) {
+        let set = new Set();
+
+        values.forEach(element => set.add(element));
+
+        console.log(set);
+    };
+
+    unique(values);
+});
+
+typeSevenTwo.addEventListener('click', (e) => {
+    let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    let sort = (arr) => {
+        let set = new Set();
+        let newArr = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            let str = arr[i].toLowerCase().split('').sort().join("");
+
+            if(!set.has(str)) {
+                newArr.push(arr[i]);
+                set.add(str);
+            };
+        };
+
+        console.log(newArr);
+    };
+
+    sort(arr);
 });
