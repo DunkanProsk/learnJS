@@ -55,7 +55,9 @@ const typeNineOne = document.querySelector('#type__nine-one');
 const typeNineTwo = document.querySelector('#type__nine-two');
 const typeTenOne = document.querySelector('#type__ten-one');
 const typeTenTwo = document.querySelector('#type__ten-two');
-
+const typeElevanOne = document.querySelector('#type__elevan-one');
+const typeElevanTwo = document.querySelector('#type__elevan-two');
+const typeElevanThree = document.querySelector('#type__elevan-three');
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
@@ -899,3 +901,41 @@ typeTenTwo.addEventListener('click', (e) => {
 
     topSalary(salaries);
 });
+
+typeElevanOne.addEventListener('click', (e) => {
+   alert(new Date(2012, 1, 20, 3, 12));
+});
+
+typeElevanTwo.addEventListener('click', (e) => {
+    let getWeekDay = (date) => {
+        switch (date.getDay()) {
+            case 0:
+                return "ВС"
+            case 1:
+                return "ПН"
+            case 2:
+                return "ВТ"
+            case 3:
+                return "СР"
+            case 4:
+                return "ЧТ"
+            case 5:
+                return "ПТ"
+            case 6:
+                return "СБ"
+        };
+    };
+
+    alert( getWeekDay(new Date(2012, 0, 3)) );
+ });
+
+ typeElevanThree.addEventListener('click', (e) => {
+    let date = new Date(2012, 0, 3);
+    
+    let getLocalDay = (date) => {
+        if(date == 0) date = 7; 
+        alert(date);
+    };
+
+    getLocalDay(date.getDay());
+ });
