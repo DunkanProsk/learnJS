@@ -62,6 +62,7 @@ const typeTwelveOne = document.querySelector('#type__twelve-one');
 
 const funOneOne = document.querySelector('#fun__one-one');
 const funOneTwo = document.querySelector('#fun__one-two');
+const funThreeFour = document.querySelector('#fun__three-four');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -999,5 +1000,32 @@ funOneOne.addEventListener('click', (e) => {
 });
 
 funOneTwo.addEventListener('click', (e) => {
-    
+    let num = prompt('Введите натуральное число');
+    let i = 1;
+    let fucNum = num;
+
+    let fuctorial = () => {
+        if(i < num) {
+            fucNum *= num - i;
+            ++i;
+            fuctorial();
+        } else {
+            alert(fucNum);
+        };
+    };
+
+    fuctorial(num);
+});
+
+funThreeFour.addEventListener('click', (e) => {
+    let a = 5;
+    let b = 5;
+
+    function sum(a) {
+        return function(b) {
+          alert(a + b);
+        };
+    };
+      
+    sum(a)(b);
 });
