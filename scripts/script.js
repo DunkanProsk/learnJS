@@ -53,6 +53,8 @@ const typeEightOne = document.querySelector('#type__eight-one');
 const typeEightTwo = document.querySelector('#type__eight-two');
 const typeNineOne = document.querySelector('#type__nine-one');
 const typeNineTwo = document.querySelector('#type__nine-two');
+const typeTenOne = document.querySelector('#type__ten-one');
+const typeTenTwo = document.querySelector('#type__ten-two');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -827,7 +829,7 @@ typeNineOne.addEventListener('click', (e) => {
     let salaries = {
         "John": 100,
         "Pete": 300,
-        "Mary": 250
+        "Mary": 250,
       };
 
     let sumSalaries = (salaries) => {
@@ -847,7 +849,7 @@ typeNineOne.addEventListener('click', (e) => {
 typeNineTwo.addEventListener('click', (e) => {
     let user = {
         name: 'John',
-        age: 30
+        age: 30,
     };
       
     let count = (user) => {
@@ -855,4 +857,45 @@ typeNineTwo.addEventListener('click', (e) => {
     };
 
     alert(count(user));
+});
+
+typeTenOne.addEventListener('click', (e) => {
+    let user = {
+        name: "John",
+        years: 30
+    };
+
+    let {
+        name,
+        years: age,
+        isAdmin = false,
+    } = user;
+
+    alert(name);
+    alert(age);
+    alert(isAdmin);
+});
+
+typeTenTwo.addEventListener('click', (e) => {
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+    };
+
+    let topSalary = (salaries) => {
+        let maxNum = 0;
+        let maxName = null;
+      
+        for(let [name, salary] of Object.entries(salaries)) {
+          if (maxNum < salary) {
+            maxNum = salary;
+            maxName = name;
+          }
+        }
+      
+        alert(maxName);
+    };
+
+    topSalary(salaries);
 });
