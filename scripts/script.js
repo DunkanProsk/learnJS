@@ -58,6 +58,8 @@ const typeTenTwo = document.querySelector('#type__ten-two');
 const typeElevanOne = document.querySelector('#type__elevan-one');
 const typeElevanTwo = document.querySelector('#type__elevan-two');
 const typeElevanThree = document.querySelector('#type__elevan-three');
+const typeTwelveOne = document.querySelector('#type__twelve-one');
+
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
@@ -929,7 +931,7 @@ typeElevanTwo.addEventListener('click', (e) => {
     alert( getWeekDay(new Date(2012, 0, 3)) );
  });
 
- typeElevanThree.addEventListener('click', (e) => {
+typeElevanThree.addEventListener('click', (e) => {
     let date = new Date(2012, 0, 3);
     
     let getLocalDay = (date) => {
@@ -938,4 +940,15 @@ typeElevanTwo.addEventListener('click', (e) => {
     };
 
     getLocalDay(date.getDay());
- });
+});
+
+typeTwelveOne.addEventListener('click', (e) => {
+    let user = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    let userJson = JSON.stringify(user, null, ' ');
+
+    alert(userJson);
+});
