@@ -60,6 +60,9 @@ const typeElevanTwo = document.querySelector('#type__elevan-two');
 const typeElevanThree = document.querySelector('#type__elevan-three');
 const typeTwelveOne = document.querySelector('#type__twelve-one');
 
+const funOneOne = document.querySelector('#fun__one-one');
+const funOneTwo = document.querySelector('#fun__one-two');
+
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
@@ -951,4 +954,50 @@ typeTwelveOne.addEventListener('click', (e) => {
     let userJson = JSON.stringify(user, null, ' ');
 
     alert(userJson);
+});
+
+//----------------------------------------------------------------Продвинутая работа с функциями--------------------------------------//
+
+funOneOne.addEventListener('click', (e) => {
+    let num = prompt('Введите число');
+
+
+    // let sumNum = (num) => {             //Вариант с циклом
+    //     let sum = 0;
+
+    //     for(let i = 1; i <= num; i++) {
+    //         sum += i;    
+    //     }
+
+    //     alert(sum);
+    // };
+
+
+    // let sumNum = (num) => {            //Вариант с рекурсией
+    //     let sum = 0;
+    //     let i = 1;
+
+    //     let getSum = () => {
+    //         if(i <= num) {
+    //             sum += i;
+    //             i++;
+    //             getSum();
+    //         } else {
+    //             alert (sum);
+    //         };
+    //     };
+
+    //     getSum();
+    // };
+
+
+    let sumNum = (num) => {                 //Вариант с формулой
+        alert(num * (++num / 2));
+    };
+
+    sumNum(num);
+});
+
+funOneTwo.addEventListener('click', (e) => {
+    
 });
