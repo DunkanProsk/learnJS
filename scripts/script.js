@@ -49,6 +49,10 @@ const typeFiveElevan = document.querySelector('#type__five-elevan');
 const typeFiveTwelve = document.querySelector('#type__five-twelve');
 const typeSevenOne = document.querySelector('#type__seven-one');
 const typeSevenTwo = document.querySelector('#type__seven-two');
+const typeEightOne = document.querySelector('#type__eight-one');
+const typeEightTwo = document.querySelector('#type__eight-two');
+const typeNineOne = document.querySelector('#type__nine-one');
+const typeNineTwo = document.querySelector('#type__nine-two');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -809,4 +813,46 @@ typeSevenTwo.addEventListener('click', (e) => {
     };
 
     sort(arr);
+});
+
+typeEightOne.addEventListener('click', (e) => {
+    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+});
+
+typeEightTwo.addEventListener('click', (e) => {
+    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+});
+
+typeNineOne.addEventListener('click', (e) => {
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+      };
+
+    let sumSalaries = (salaries) => {
+        let sum = 0;
+
+        for(let value of Object.values(salaries)) {
+            sum += value; 
+        }
+
+        console.log(sum);
+    };
+
+    sumSalaries(salaries);
+
+});
+
+typeNineTwo.addEventListener('click', (e) => {
+    let user = {
+        name: 'John',
+        age: 30
+    };
+      
+    let count = (user) => {
+        return Object.keys(user).length;
+    };
+
+    alert(count(user));
 });
