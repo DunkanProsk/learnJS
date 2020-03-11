@@ -63,6 +63,7 @@ const typeTwelveOne = document.querySelector('#type__twelve-one');
 const funOneOne = document.querySelector('#fun__one-one');
 const funOneTwo = document.querySelector('#fun__one-two');
 const funThreeFour = document.querySelector('#fun__three-four');
+const funThreeFive = document.querySelector('#fun__three-five');
 const funSixTwo = document.querySelector('#fun__six-two');
 const funEightOne = document.querySelector('#fun__eight-one');
 
@@ -1032,6 +1033,27 @@ funThreeFour.addEventListener('click', (e) => {
     sum(a)(b);
 });
 
+funThreeFive.addEventListener('click', (e) => {
+    let inBetween = (a, b) => {
+        return function (item) {
+            if(item >= a && item <= b) return true;
+        };
+    };
+
+    let inArray = (array) => {
+        return function (item) {
+            for(let i = 0; i < array.length; i++) {
+                if(item == array[i]) return true;
+            };
+        };
+    };
+    
+    let arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(arr.filter(inBetween(3, 6)));
+    alert(arr.filter(inArray([1, 2, 8, 3, 10])));
+});
+
 funSixTwo.addEventListener('click', (e) => {
     function sum(a) {
 
@@ -1073,5 +1095,4 @@ funEightOne.addEventListener('click', (e) => {
             setTimeout(tick, 1000);
         };
     }, 1000);
-
 });
