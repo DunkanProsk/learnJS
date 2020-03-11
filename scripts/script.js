@@ -49,6 +49,22 @@ const typeFiveElevan = document.querySelector('#type__five-elevan');
 const typeFiveTwelve = document.querySelector('#type__five-twelve');
 const typeSevenOne = document.querySelector('#type__seven-one');
 const typeSevenTwo = document.querySelector('#type__seven-two');
+const typeEightOne = document.querySelector('#type__eight-one');
+const typeEightTwo = document.querySelector('#type__eight-two');
+const typeNineOne = document.querySelector('#type__nine-one');
+const typeNineTwo = document.querySelector('#type__nine-two');
+const typeTenOne = document.querySelector('#type__ten-one');
+const typeTenTwo = document.querySelector('#type__ten-two');
+const typeElevanOne = document.querySelector('#type__elevan-one');
+const typeElevanTwo = document.querySelector('#type__elevan-two');
+const typeElevanThree = document.querySelector('#type__elevan-three');
+const typeTwelveOne = document.querySelector('#type__twelve-one');
+
+const funOneOne = document.querySelector('#fun__one-one');
+const funOneTwo = document.querySelector('#fun__one-two');
+const funThreeFour = document.querySelector('#fun__three-four');
+const funSixTwo = document.querySelector('#fun__six-two');
+const funEightOne = document.querySelector('#fun__eight-one');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -809,4 +825,253 @@ typeSevenTwo.addEventListener('click', (e) => {
     };
 
     sort(arr);
+});
+
+typeEightOne.addEventListener('click', (e) => {
+    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+});
+
+typeEightTwo.addEventListener('click', (e) => {
+    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+});
+
+typeNineOne.addEventListener('click', (e) => {
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250,
+      };
+
+    let sumSalaries = (salaries) => {
+        let sum = 0;
+
+        for(let value of Object.values(salaries)) {
+            sum += value; 
+        }
+
+        console.log(sum);
+    };
+
+    sumSalaries(salaries);
+
+});
+
+typeNineTwo.addEventListener('click', (e) => {
+    let user = {
+        name: 'John',
+        age: 30,
+    };
+      
+    let count = (user) => {
+        return Object.keys(user).length;
+    };
+
+    alert(count(user));
+});
+
+typeTenOne.addEventListener('click', (e) => {
+    let user = {
+        name: "John",
+        years: 30
+    };
+
+    let {
+        name,
+        years: age,
+        isAdmin = false,
+    } = user;
+
+    alert(name);
+    alert(age);
+    alert(isAdmin);
+});
+
+typeTenTwo.addEventListener('click', (e) => {
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+    };
+
+    let topSalary = (salaries) => {
+        let maxNum = 0;
+        let maxName = null;
+      
+        for(let [name, salary] of Object.entries(salaries)) {
+          if (maxNum < salary) {
+            maxNum = salary;
+            maxName = name;
+          }
+        }
+      
+        alert(maxName);
+    };
+
+    topSalary(salaries);
+});
+
+typeElevanOne.addEventListener('click', (e) => {
+   alert(new Date(2012, 1, 20, 3, 12));
+});
+
+typeElevanTwo.addEventListener('click', (e) => {
+    let getWeekDay = (date) => {
+        switch (date.getDay()) {
+            case 0:
+                return "ВС"
+            case 1:
+                return "ПН"
+            case 2:
+                return "ВТ"
+            case 3:
+                return "СР"
+            case 4:
+                return "ЧТ"
+            case 5:
+                return "ПТ"
+            case 6:
+                return "СБ"
+        };
+    };
+
+    alert( getWeekDay(new Date(2012, 0, 3)) );
+ });
+
+typeElevanThree.addEventListener('click', (e) => {
+    let date = new Date(2012, 0, 3);
+    
+    let getLocalDay = (date) => {
+        if(date == 0) date = 7; 
+        alert(date);
+    };
+
+    getLocalDay(date.getDay());
+});
+
+typeTwelveOne.addEventListener('click', (e) => {
+    let user = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    let userJson = JSON.stringify(user, null, ' ');
+
+    alert(userJson);
+});
+
+//----------------------------------------------------------------Продвинутая работа с функциями--------------------------------------//
+
+funOneOne.addEventListener('click', (e) => {
+    let num = prompt('Введите число');
+
+
+    // let sumNum = (num) => {             //Вариант с циклом
+    //     let sum = 0;
+
+    //     for(let i = 1; i <= num; i++) {
+    //         sum += i;    
+    //     }
+
+    //     alert(sum);
+    // };
+
+
+    // let sumNum = (num) => {            //Вариант с рекурсией
+    //     let sum = 0;
+    //     let i = 1;
+
+    //     let getSum = () => {
+    //         if(i <= num) {
+    //             sum += i;
+    //             i++;
+    //             getSum();
+    //         } else {
+    //             alert (sum);
+    //         };
+    //     };
+
+    //     getSum();
+    // };
+
+
+    let sumNum = (num) => {                 //Вариант с формулой
+        alert(num * (++num / 2));
+    };
+
+    sumNum(num);
+});
+
+funOneTwo.addEventListener('click', (e) => {
+    let num = prompt('Введите натуральное число');
+    let i = 1;
+    let fucNum = num;
+
+    let fuctorial = () => {
+        if(i < num) {
+            fucNum *= num - i;
+            ++i;
+            fuctorial();
+        } else {
+            alert(fucNum);
+        };
+    };
+
+    fuctorial(num);
+});
+
+funThreeFour.addEventListener('click', (e) => {
+    let a = 5;
+    let b = 5;
+
+    function sum(a) {
+        return function(b) {
+          alert(a + b);
+        };
+    };
+      
+    sum(a)(b);
+});
+
+funSixTwo.addEventListener('click', (e) => {
+    function sum(a) {
+
+        let sum = a;
+      
+        function f(b) {
+          sum += b;
+          return f;
+        }
+      
+        f.toString = function() {
+          return sum;
+        };
+      
+        return f;
+    }
+      
+    alert( sum(1)(2) );
+    alert( sum(5)(-1)(2) );
+    alert( sum(6)(-1)(-2)(-3) );
+    alert( sum(0)(1)(2)(3)(4)(5) );
+});
+
+funEightOne.addEventListener('click', (e) => {
+    let a = prompt('Первое число');
+    let b = prompt('Второе число');
+    
+    // let printNumbers = (from, to) => {           // Используя setInterval.
+    //     let time = () => {
+    //         (from <= to) ? console.log(from++) : clearInterval();
+    //     };
+
+    //     setInterval(time, 1000);
+    // };
+
+    let timer = setTimeout(function tick() {       // Используя рекурсивный setTimeout.
+        if(a <= b) {
+            console.log(a++);
+            setTimeout(tick, 1000);
+        };
+    }, 1000);
+
 });
