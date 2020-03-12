@@ -64,6 +64,7 @@ const funOneOne = document.querySelector('#fun__one-one');
 const funOneTwo = document.querySelector('#fun__one-two');
 const funThreeFour = document.querySelector('#fun__three-four');
 const funThreeFive = document.querySelector('#fun__three-five');
+const funThreeSix = document.querySelector('#fun__three-six');
 const funSixTwo = document.querySelector('#fun__six-two');
 const funEightOne = document.querySelector('#fun__eight-one');
 
@@ -1054,6 +1055,32 @@ funThreeFive.addEventListener('click', (e) => {
     alert(arr.filter(inArray([1, 2, 8, 3, 10])));
 });
 
+funThreeSix.addEventListener('click', (e) => {
+    let users = [
+        { name: "John", age: 20, surname: "Johnson" },
+        { name: "Pete", age: 18, surname: "Peterson" },
+        { name: "Ann", age: 19, surname: "Hathaway" }
+    ];
+
+    let byField = (value) => {
+        if(value == 'name') {
+            return (a, b) => a.name > b.name ? 1 : -1;
+        } else {
+            return (a, b) => a.age > b.age ? 1 : -1;
+        }
+    };
+
+    users.sort(byField('name'));
+    users.forEach(user => console.log(user.name));
+
+    console.log('------------------------------');
+
+    users.sort(byField('age'));
+    users.forEach(user => console.log(user.name));    
+});
+
+//-----------------Задачи не до конца передают суть замыкания, не уверен, что я полностью его понял.
+
 funSixTwo.addEventListener('click', (e) => {
     function sum(a) {
 
@@ -1081,7 +1108,7 @@ funEightOne.addEventListener('click', (e) => {
     let a = prompt('Первое число');
     let b = prompt('Второе число');
     
-    // let printNumbers = (from, to) => {           // Используя setInterval.
+    // let printNumbers = (from, to) => {                                     // Используя setInterval.
     //     let time = () => {
     //         (from <= to) ? console.log(from++) : clearInterval();
     //     };
@@ -1089,7 +1116,7 @@ funEightOne.addEventListener('click', (e) => {
     //     setInterval(time, 1000);
     // };
 
-    let timer = setTimeout(function tick() {       // Используя рекурсивный setTimeout.
+    let timer = setTimeout(function tick() {                                  // Используя рекурсивный setTimeout.
         if(a <= b) {
             console.log(a++);
             setTimeout(tick, 1000);
