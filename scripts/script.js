@@ -833,11 +833,52 @@ typeSevenTwo.addEventListener('click', (e) => {
 });
 
 typeEightOne.addEventListener('click', (e) => {
-    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+    let messages = [
+        {text: "Hello", from: "John"},
+        {text: "How goes?", from: "John"},
+        {text: "See you soon", from: "Alice"}
+    ];
+    
+    let readMessage = new WeakSet();
+
+    
+    readMessage.add(messages[0]);
+    readMessage.add(messages[1]);
+    
+    console.log(messages);
+
+    messages.shift();
+
+    console.log(messages);
+    console.log('первый элемент ' + readMessage.has(messages[0])); //после удаления сдвинулся
+    console.log('второй элемент ' + readMessage.has(messages[1]));
 });
 
 typeEightTwo.addEventListener('click', (e) => {
-    alert('Задача находиться в разработке('); //еще не решил, вернусь к ней позже.
+    let messages = [
+        { text: "Hello", from: "John" },
+        { text: "How goes?", from: "John" },
+        { text: "See you soon", from: "Alice" }
+    ];
+
+    let readMessage = new WeakMap();
+
+    
+    readMessage.set(messages[0],`первый элемент : ${new Date()}`);
+    readMessage.set(messages[1],`второй элемент : ${new Date()}`);
+    readMessage.set(messages[2],`третий элемент : ${new Date()}`);
+    
+    console.log(readMessage.get(messages[0]));
+    console.log(readMessage.get(messages[1]));
+    console.log(readMessage.get(messages[2]));
+
+    messages.shift();
+
+    console.log('удалил первый элемент');
+    
+    console.log(readMessage.get(messages[0])); //после удаления сдвинулся
+    console.log(readMessage.get(messages[1]));
+    console.log(readMessage.get(messages[2]));
 });
 
 typeNineOne.addEventListener('click', (e) => {
