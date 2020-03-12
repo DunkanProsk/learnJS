@@ -840,18 +840,21 @@ typeEightOne.addEventListener('click', (e) => {
     ];
     
     let readMessage = new WeakSet();
-
     
     readMessage.add(messages[0]);
     readMessage.add(messages[1]);
-    
-    console.log(messages);
+    readMessage.add(messages[2]);
 
-    messages.shift();
-
-    console.log(messages);
     console.log('первый элемент ' + readMessage.has(messages[0])); //после удаления сдвинулся
     console.log('второй элемент ' + readMessage.has(messages[1]));
+    console.log('третий элемент ' + readMessage.has(messages[2]));
+    
+    messages.shift();
+    console.log('удалил первый элемент');
+
+    console.log('первый элемент ' + readMessage.has(messages[0])); //после удаления сдвинулся
+    console.log('второй элемент ' + readMessage.has(messages[1]));
+    console.log('третий элемент ' + readMessage.has(messages[2]));
 });
 
 typeEightTwo.addEventListener('click', (e) => {
@@ -873,9 +876,8 @@ typeEightTwo.addEventListener('click', (e) => {
     console.log(readMessage.get(messages[2]));
 
     messages.shift();
-
     console.log('удалил первый элемент');
-    
+
     console.log(readMessage.get(messages[0])); //после удаления сдвинулся
     console.log(readMessage.get(messages[1]));
     console.log(readMessage.get(messages[2]));
