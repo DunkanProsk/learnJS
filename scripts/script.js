@@ -67,6 +67,9 @@ const funThreeFive = document.querySelector('#fun__three-five');
 const funThreeSix = document.querySelector('#fun__three-six');
 const funSixTwo = document.querySelector('#fun__six-two');
 const funEightOne = document.querySelector('#fun__eight-one');
+const funNineOne = document.querySelector('#fun__nine-one');
+
+const protOneTwo = document.querySelector('#prot__one-two');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -1122,4 +1125,58 @@ funEightOne.addEventListener('click', (e) => {
             setTimeout(tick, 1000);
         };
     }, 1000);
+});
+
+funNineOne.addEventListener('click', (e) => {
+    function work(a, b) {
+        alert( a + b );
+    };
+
+    function spy(func) {
+
+        function wrapper(...args) {
+          wrapper.calls.push(args);
+          return func.apply(this, arguments);
+        }
+      
+        wrapper.calls = [];
+      
+        return wrapper;
+    };
+      
+    work = spy(work);
+
+    work(1, 2);
+    work(4, 5);
+    
+    for (let args of work.calls) {
+        alert( 'call:' + args.join() );
+    };
+});
+
+//----------------------------------------------------------------Прототипы, наследование----------------------------------------------//
+
+protOneTwo.addEventListener('click', (e) => {
+    let head = {
+        glasses: 1,
+    };
+      
+    let table = {
+        pen: 3,
+        __proto__: head,
+    };
+    
+    let bed = {
+        sheet: 1,
+        pillow: 2,
+        __proto__: table,
+    };
+    
+    let pockets = {
+        money: 2000,
+        __proto__: bed,
+    };
+
+    console.log(pockets.pen);
+    console.log(bed.glasses);
 });
