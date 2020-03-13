@@ -77,6 +77,8 @@ const protThreeOne = document.querySelector('#prot__three-one');
 const protThreeTwo = document.querySelector('#prot__three-two');
 const protFourOne = document.querySelector('#prot__four-one');
 
+const klassOneOne = document.querySelector('#klass__one-one');
+
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
@@ -1322,4 +1324,37 @@ protFourOne.addEventListener('click', (e) => {
     dictionary.__proto__ = "test";
 
     console.log(dictionary.toString());
+});
+
+//----------------------------------------------------------------Классы----------------------------------------------//
+
+klassOneOne.addEventListener('click', (e) => {
+    class Clock {
+        render() {
+            let date = new Date();
+        
+            let hours = date.getHours();
+            if (hours < 10) hours = '0' + hours;
+        
+            let mins = date.getMinutes();
+            if (mins < 10) mins = '0' + mins;
+        
+            let secs = date.getSeconds();
+            if (secs < 10) secs = '0' + secs;
+        
+            console.log(`${hours} : ${mins} : ${secs}`);
+        }
+
+        stop() {
+            clearInterval(this.timer);
+        }
+        
+        start() {
+            this.render();
+            this.timer = setInterval(() => this.render(), 1000);
+        }
+    }
+    
+    let clock = new Clock();
+    clock.start();
 });
