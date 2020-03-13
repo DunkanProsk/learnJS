@@ -68,6 +68,8 @@ const funThreeSix = document.querySelector('#fun__three-six');
 const funSixTwo = document.querySelector('#fun__six-two');
 const funEightOne = document.querySelector('#fun__eight-one');
 const funNineOne = document.querySelector('#fun__nine-one');
+const funNineTwo = document.querySelector('#fun__nine-two');
+const funNineThree = document.querySelector('#fun__nine-three');
 
 const protOneTwo = document.querySelector('#prot__one-two');
 
@@ -1197,7 +1199,46 @@ funNineOne.addEventListener('click', (e) => {
     };
 });
 
-// Декораторы и переадресация вызова, сall/apply --- одна задача, не до конца понял тему.
+funNineTwo.addEventListener('click', (e) => {
+    function f(x) {
+        alert(x);
+    }
+
+    function delay(f, ms) {
+        return function() {
+            setTimeout(() => f.apply(this, arguments), ms);
+        };
+    }
+      
+    let f1500 = delay(f, 1500);
+    
+    f1500("test");
+});
+
+funNineThree.addEventListener('click', (e) => {
+
+
+    let f = debounce(alert, 1000);
+
+    function debounce(f, ms) {
+        let timeout = false;
+      
+        return function() {
+          if (timeout) return;
+      
+          f.apply(this, arguments);
+      
+          timeout = true;
+      
+          setTimeout(() => timeout = false, ms);
+        };
+    };
+
+    setTimeout( () => f(3), 100);
+    setTimeout( () => f(4), 1100);
+    setTimeout( () => f(5), 2000);
+});
+
 // Привязка контекста к функции -------------------- ни одной задачи.
 
 //----------------------------------------------------------------Прототипы, наследование----------------------------------------------//
