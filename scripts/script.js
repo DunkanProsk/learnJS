@@ -72,6 +72,10 @@ const funNineTwo = document.querySelector('#fun__nine-two');
 const funNineThree = document.querySelector('#fun__nine-three');
 
 const protOneTwo = document.querySelector('#prot__one-two');
+const protTwoTwo = document.querySelector('#prot__two-two');
+const protThreeOne = document.querySelector('#prot__three-one');
+const protThreeTwo = document.querySelector('#prot__three-two');
+const protFourOne = document.querySelector('#prot__four-one');
 
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
@@ -1216,8 +1220,6 @@ funNineTwo.addEventListener('click', (e) => {
 });
 
 funNineThree.addEventListener('click', (e) => {
-
-
     let f = debounce(alert, 1000);
 
     function debounce(f, ms) {
@@ -1238,8 +1240,6 @@ funNineThree.addEventListener('click', (e) => {
     setTimeout( () => f(4), 1100);
     setTimeout( () => f(5), 2000);
 });
-
-// Привязка контекста к функции -------------------- ни одной задачи.
 
 //----------------------------------------------------------------Прототипы, наследование----------------------------------------------//
 
@@ -1266,4 +1266,60 @@ protOneTwo.addEventListener('click', (e) => {
 
     console.log(pockets.pen);
     console.log(bed.glasses);
+});
+
+protTwoTwo.addEventListener('click', (e) => {
+    function User(name, lastname) {
+        this.name = name;
+        this.lastname = lastname;
+    };
+      
+    let user = new User('John', 'Sina');
+    let user2 = new user.constructor('Pete', 'Pepe');
+      
+    console.log( `${user.name} ${user.lastname}` );
+    console.log( `${user2.name} ${user2.lastname}` );
+});
+
+protThreeOne.addEventListener('click', (e) => {
+    function f() {
+        alert("Hello!");
+    }
+    
+    Function.prototype.defer = function(value) {
+        setTimeout(this, value);
+    };
+
+    f.defer(1000);
+});
+
+protThreeTwo.addEventListener('click', (e) => {
+    function f(a, b) {
+        alert( a + b );
+    }
+    
+    Function.prototype.defer = function(value) {
+        let f = this;
+        return function(...args) {
+            setTimeout(() => f.apply(this, args), value);
+        }
+        
+    };
+
+    f.defer(1000)(1, 2);
+});
+
+protFourOne.addEventListener('click', (e) => {
+    let dictionary = Object.create(null, {
+        toString: { 
+            value() {
+                return Object.keys(this).join();
+            }
+        }
+      });
+
+    dictionary.apple = "Apple";
+    dictionary.__proto__ = "test";
+
+    console.log(dictionary.toString());
 });
