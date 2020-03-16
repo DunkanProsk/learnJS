@@ -79,6 +79,9 @@ const protFourOne = document.querySelector('#prot__four-one');
 
 const klassOneOne = document.querySelector('#klass__one-one');
 
+const promOneTwo = document.querySelector('#prom__one-two');
+const promEightOne = document.querySelector('#prom__eight-one');
+
 //----------------------------------------------------------------Основы JS----------------------------------------//
 
 one.addEventListener('click', (e) => {
@@ -1357,4 +1360,31 @@ klassOneOne.addEventListener('click', (e) => {
     
     let clock = new Clock();
     clock.start();
+});
+
+//----------------------------------------------------------------Промисы----------------------------------------------//
+
+promOneTwo.addEventListener('click', (e) => {
+    function delay(ms) {
+        return new Promise(function(resolve) {
+            setTimeout(resolve, ms);
+        });
+    };
+      
+    delay(3000).then(() => alert('выполнилось через 3 секунды'));
+});
+
+promEightOne.addEventListener('click', (e) => {
+    async function loadJson(url) {
+        let response = await fetch(url);
+
+        if (response.status == 200) {
+            let json = await response.json();
+            return json;
+        };
+
+        throw new Error(response.status);
+    };
+      
+    loadJson('no-such-user.json').catch(alert);
 });
